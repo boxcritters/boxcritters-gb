@@ -6,7 +6,7 @@
 struct Critter player;
 
 void init() {
-	//DISPLAY_ON;
+	DISPLAY_ON;
 
 	createCritter(&player);
 	updateCritter(&player);
@@ -17,9 +17,9 @@ void checkInput() {
 
 void updateSwitches() {
 	
-	//HIDE_WIN;
+	HIDE_WIN;
 	SHOW_SPRITES;
-	//SHOW_BKG;
+	SHOW_BKG;
 	
 }
 
