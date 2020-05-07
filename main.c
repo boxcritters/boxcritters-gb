@@ -1,42 +1,28 @@
 #include <gb/gb.h>
 #include <stdio.h>
 
-#include "src/critter.c"
+#include "sprites/hamster_front.c"
+#include "sprites/hamster_back.c"
 
-struct Critter player;
+#include "src/sprite.c"
 
-void init() {
-	DISPLAY_ON;
-
-	createCritter(&player);
-	updateCritter(&player);
-}
-
-void checkInput() {
-}
-
-void updateSwitches() {
-	
-	HIDE_WIN;
-	SHOW_SPRITES;
-	SHOW_BKG;
-	
-}
-
-void performantdelay(UINT8 numloops) {
-	UINT8 i;
-	for (i = 0; i < numloops; i++)
-	{
-		wait_vbl_done();
-	}
-	
-}
 
 void main() {
-	init();
-	while(1) {
-		checkInput();
-		updateSwitches();
-		performantdelay(5);
-	}
+	UBYTE tiles[8] = {
+		0,1,
+		2,3,
+		4,5,
+		6,8
+	};
+	UBYTE flip[8] = {
+		0,1,
+		0,1,
+		0,0,
+		0,0
+	};
+	UBYTE sprite = createSprite(TileHamFront, 39);
+	displaySprite(sprite, tiles, flip, 2*4);
+	moveSprite(sprite, 80, 72, 2, 4);
+
+	SHOW_SPRITES;
 }
