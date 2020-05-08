@@ -1,14 +1,12 @@
 #include <gb/gb.h>
 #include <stdio.h>
 
-#include "sprites/hamster_front.c"
-#include "sprites/hamster_back.c"
-
+#include "src/critter_data.c"
 #include "src/sprite.c"
 
 
 void main() {
-	UBYTE tiles[8] = {
+	/*UBYTE tiles[8] = {
 		0,1,
 		2,3,
 		4,5,
@@ -19,10 +17,10 @@ void main() {
 		0,1,
 		0,0,
 		0,0
-	};
-	UBYTE sprite = createSprite(TileHamFront, 39);
-	displaySprite(sprite, tiles, flip, 2*4);
-	moveSprite(sprite, 80, 72, 2, 4);
+	};*/
+	UBYTE sprite = createSprite(Hamster.colors, Hamster.count);
+	displaySprite(sprite, Hamster.tiles, Hamster.flip, Hamster.width,Hamster.height);
+	moveSprite(sprite, 80, 72, Hamster.width, Hamster.height);
 
 	SHOW_SPRITES;
 }
