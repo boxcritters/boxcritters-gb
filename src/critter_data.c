@@ -10,8 +10,8 @@
 struct CritterData {
 	unsigned char* colors;
 	UBYTE count,width,height;
-	UBYTE tiles[FRAME_SIZE*1];
-	UBYTE flip[FRAME_SIZE*1];
+	UINT8 tiles[FRAME_SIZE*5];
+	UINT8 flip[FRAME_SIZE*5];
 };
 
 struct CritterData Hamster = {
@@ -21,9 +21,49 @@ struct CritterData Hamster = {
 		0,0,
 		1,1,
 		2,2,
-		3,3
+		3,3,
+
+		4,4,
+		5,5,
+		6,6,
+		7,7,
+
+		8,8,
+		9,9,
+		10,10,
+		11,11,
+
+		8,8,
+		9,9,
+		10,10,
+		12,12,
+
+		4,4,
+		5,5,
+		6,6,
+		7,7
 	},
 	{
+		0,1,
+		0,1,
+		0,1,
+		0,1,
+
+		0,1,
+		0,1,
+		0,1,
+		0,1,
+
+		0,1,
+		0,1,
+		0,1,
+		0,1,
+
+		0,1,
+		0,1,
+		0,1,
+		0,1,
+
 		0,1,
 		0,1,
 		0,1,

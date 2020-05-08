@@ -13,16 +13,18 @@ UBYTE createSprite(unsigned char* data, UBYTE count) {
 	return sprite;
 }
 
-void displaySprite(UBYTE sprite, UBYTE tiles[], UBYTE flip[], UINT8 count) {
+void displaySprite(UBYTE sprite, UINT8* tiles, UINT8* flip, UINT8 count, UINT8 frame) {
 	UBYTE i;
+	UINT8 frameStart = frame*count;
 	for(i=0;i<count;i++) {
-		printf("%d:%d\n",(int)i, (int)tiles[i]);
-		set_sprite_tile(sprite+i,sprite+tiles[i]);
-		if(flip[i]==1) set_sprite_prop(sprite+i, S_FLIPX);
+		UINT8 frameID = frameStart+i;
+		//printf("%d:%d\n",(int)frameID, (int)tiles[frameID]);
+		set_sprite_tile(sprite+i,sprite+tiles[frameID]);
+		if(flip[frameID]==1) set_sprite_prop(sprite+i, S_FLIPX);
 	}
 }
 
-void moveSprite(UBYTE sprite, UBYTE x, UBYTE y, UBYTE width, UBYTE height) {
+void moveSprite(UBYTE sprite, UBYTE width, UBYTE height, UBYTE x, UBYTE y) {
 	UBYTE i;
 	UBYTE count = width*height;
 	for (i = 0;i < count; i++) {
