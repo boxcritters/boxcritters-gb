@@ -16,7 +16,7 @@ UBYTE createSprite(unsigned char* data, UBYTE count) {
 void displaySprite(UBYTE sprite, UBYTE tiles[], UBYTE flip[], UINT8 count) {
 	UBYTE i;
 	for(i=0;i<count;i++) {
-		printf("%d=%d\n",(int)i, (int)tiles[i]);
+		printf("%d:%d\n",(int)i, (int)tiles[i]);
 		set_sprite_tile(sprite+i,sprite+tiles[i]);
 		if(flip[i]==1) set_sprite_prop(sprite+i, S_FLIPX);
 	}
