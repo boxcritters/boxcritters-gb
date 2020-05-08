@@ -1,4 +1,7 @@
+#ifndef _SPRITE_H_
+#define _SPRITE_H_
 #include <gb/gb.h>
+#include <stdio.h>
 
 #define TILE_SIZE 8
 UBYTE nextTile = 0;
@@ -10,10 +13,10 @@ UBYTE createSprite(unsigned char* data, UBYTE count) {
 	return sprite;
 }
 
-void displaySprite(UBYTE sprite, UBYTE* tiles, UBYTE* flip, UBYTE count) {
+void displaySprite(UBYTE sprite, UBYTE tiles[], UBYTE flip[], UBYTE count) {
 	UBYTE i;
 	for(i=0;i<count;i++) {
-
+		//printf("%d=%d\n",(int)i, (int)tiles[i]);
 		set_sprite_tile(sprite+i,sprite+tiles[i]);
 		if(flip[i]==1) set_sprite_prop(sprite+i, S_FLIPX);
 	}
@@ -28,3 +31,4 @@ void moveSprite(UBYTE sprite, UBYTE x, UBYTE y, UBYTE width, UBYTE height) {
 		move_sprite(sprite+i,ix,iy);
 	}
 }
+#endif
