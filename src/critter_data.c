@@ -5,26 +5,28 @@
 #include "../sprites/hamster_front.c"
 #include "../sprites/hamster_back.c"
 
-typedef struct CritterData {
+#define FRAME_SIZE 8
+
+struct CritterData {
 	unsigned char* colors;
 	UBYTE count,width,height;
-	UBYTE tiles[];
-	UBYTE flip[];
-} CritterData;
+	UBYTE tiles[FRAME_SIZE*1];
+	UBYTE flip[FRAME_SIZE*1];
+};
 
-CritterData Hamster = {
+struct CritterData Hamster = {
 	TileHamFront,
-	39,2,4,
+	13,2,4,
 	{
-		0,1,
-		2,3,
-		4,5,
-		6,8
+		0,0,
+		1,1,
+		2,2,
+		3,3
 	},
 	{
 		0,1,
 		0,1,
-		0,0,
-		0,0
+		0,1,
+		0,1
 	}
 };
